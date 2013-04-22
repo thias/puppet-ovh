@@ -1,3 +1,8 @@
+2013-04-22 - 0.3.0
+* Change to 2-space indent.
+* Include oco source, spec and init script.
+* Update README to use markdown and include useful examples.
+
 2012-03-07 - 0.2.0
 * Update tests to cover more cases.
 * Include LICENSE since the module will be distributed individually.

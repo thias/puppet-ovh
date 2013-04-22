@@ -1,0 +1,25 @@
+diff -Naupr oco-ded-1.15.orig/bin/oco-tcpresponder.pl oco-ded-1.15/bin/oco-tcpresponder.pl
+--- oco-ded-1.15.orig/bin/oco-tcpresponder.pl	2008-03-14 17:00:21.000000000 +0100
++++ oco-ded-1.15/bin/oco-tcpresponder.pl	2010-03-10 17:58:37.549575743 +0100
+@@ -12,6 +12,12 @@ my $LOGFILE="/var/log/oco/oco.log";
+ 
+ &daemonize;
+ 
++# pid file
++open my $pidfile, ">", "/var/run/oco.pid"
++	or die "could not open /var/run/oco.pid: $!";
++print $pidfile "$$\n";
++close $pidfile;
++
+ #get hostname
+ my $hostname=`/bin/hostname`;
+ chomp ($hostname);
+@@ -154,7 +160,7 @@ exit;
+ 
+ sub daemonize {
+ 	my ($i,$pid);
+-	print "Launching oco server daemon, logs are in $LOGFILE\n";
++	#print "Launching oco server daemon, logs are in $LOGFILE\n";
+ 
+ 	#security
+ 	$ENV{PATH}="/bin:/usr/bin";

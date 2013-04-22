@@ -14,12 +14,12 @@
 #  include ovh::oco::daemon
 #
 class ovh::oco::daemon {
-    package { 'oco': ensure => installed }
-    service { 'oco':
-        ensure    => running,
-        require   => Package['oco'],
-        enable    => true,
-        hasstatus => true,
-    }
+  package { 'oco': ensure => installed }
+  service { 'oco':
+    ensure    => running,
+    require   => Package['oco'],
+    enable    => true,
+    hasstatus => true,
+  }
 }
 
